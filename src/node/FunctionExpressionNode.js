@@ -37,7 +37,8 @@ export default class FunctionExpressionNode extends ASTNode {
         body: [],
         type: 'BlockStatement'
       },
-      leadingComments: []
+      leadingComments: [],
+      trailingComments: []
     };
   }
 
@@ -131,6 +132,14 @@ export default class FunctionExpressionNode extends ASTNode {
         assignment.addComments(node.leadingComments);
         this._children.push(assignment);
       }
+    }
+
+    // trailing comment
+    let lastNode = this._children[this._children.length - 1];
+    if (lastNode) {
+      lastNode.addComments(classNode.trailingComments, false);
+    } else {
+      this.addComments(classNode.trailingComments, false);
     }
   }
 }

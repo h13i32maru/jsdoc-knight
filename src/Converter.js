@@ -22,14 +22,17 @@ export default class Converter {
    * convert ES6 to ES5 for JSDoc.
    * @param {string} inDirPath input dir path from current dir.
    * @param {string} outDirPath output dir path from current dir.
+   * @param {boolean} [debug=false]
    */
-  static convert(inDirPath, outDirPath) {
+  static convert(inDirPath, outDirPath, debug = false) {
     this._walk(inDirPath, (filePath, content)=>{
       let code;
       try {
         code = this._generate(content);
+        console.log('convert: ' + filePath);
       } catch(e) {
-        console.log(e.stack);
+        console.error('fail convert: ' + filePath);
+        if (debug) console.log(e.stack);
         return;
       }
 
@@ -76,6 +79,7 @@ export default class Converter {
         let exportNode = node6;
         node6 = exportNode.declaration;
         node6.leadingComments = exportNode.leadingComments;
+        node6.trailingComments = exportNode.trailingComments;
       }
 
       switch (node6.type) {

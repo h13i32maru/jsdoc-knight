@@ -58,14 +58,20 @@ export default class ASTNode {
   /**
    * add comments to self.
    * @param {Comment[]} comments
+   * @param {boolean} [leading=true]
    */
-  addComments(comments) {
+  addComments(comments, leading = true) {
     if (!this._node.leadingComments) this._node.leadingComments = [];
+    if (!this._node.trailingComments) this._node.trailingComments = [];
     if (!comments) return;
 
     for (let comment of comments) {
       let formatted = this._formatJSDocComment(comment);
-      this._node.leadingComments.push(formatted);
+      if (leading) {
+        this._node.leadingComments.push(formatted);
+      } else {
+        this._node.trailingComments.push(formatted);
+      }
     }
   }
 
