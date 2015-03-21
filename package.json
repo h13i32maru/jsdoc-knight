@@ -1,0 +1,45 @@
+{
+  "name": "jsdoc-knight",
+  "version": "0.0.1",
+  "description": "Convert ES6 to ES5 as JSDoc can process.",
+  "author": "h13i32maru",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h13i32maru/jsdoc-knight"
+  },
+  "scripts": {
+    "build": "bash ./script/build.sh",
+    "build_test": "bash ./script/build_test.sh",
+    "test": "bash ./script/test.sh"
+  },
+  "dependencies": {
+    "babel": "",
+    "espree": "",
+    "escodegen": "",
+    "estraverse": "",
+    "esquery": ""
+  },
+  "devDependencies": {
+    "babel": "",
+    "coveralls": "",
+    "espower-loader": "",
+    "fs-extra": "^0.16.5",
+    "istanbul": "",
+    "minimist": "^1.1.1",
+    "mocha": "",
+    "power-assert": ""
+  },
+  "keywords": [
+    "jsdoc",
+    "es6",
+    "ecmascript6",
+    "es5",
+    "ecmascript5"
+  ],
+  "files": [
+    "out/src",
+    "README.md"
+  ],
+  "bin": {"jsdoc-knight": "out/src/cli.js"}
+}
