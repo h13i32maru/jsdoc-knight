@@ -14,20 +14,19 @@
     "test": "bash ./script/test.sh"
   },
   "dependencies": {
-    "babel": "",
     "espree": "",
     "escodegen": "",
     "estraverse": "",
-    "esquery": ""
+    "esquery": "",
+    "fs-extra": "^0.16.5",
+    "minimist": "^1.1.1"
   },
   "devDependencies": {
     "babel": "",
     "coveralls": "",
     "espower-loader": "",
-    "fs-extra": "^0.16.5",
     "istanbul": "",
-    "minimist": "^1.1.1",
-    "mocha": "",
+    "mocha": "^2.2.1",
     "power-assert": ""
   },
   "keywords": [
@@ -41,5 +40,7 @@
     "out/src",
     "README.md"
   ],
-  "bin": {"jsdoc-knight": "out/src/cli.js"}
+  "bin": {
+    "jsdoc-knight": "out/src/cli.js"
+  }
 }

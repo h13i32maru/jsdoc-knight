@@ -1,8 +1,8 @@
 import escodegen from 'escodegen';
-import FunctionDeclarationNode from './node/FunctionDeclarationNode.js';
+import FunctionDeclarationNode from '../node/FunctionDeclarationNode.js';
 import parse from './parse.js';
 
-export default function convert(code) {
+export default function generate(code) {
   var ast6 = parse(code);
   var ast5 = {body:[], sourceType: 'script', type: 'Program'};
 
@@ -25,6 +25,7 @@ export default function convert(code) {
       default:
         if (node6.params) node6.params = [];
         if (node6.defaults) node6.defaults = [];
+        node6.trailingComments = [];
         ast5.body.push(node6);
         break;
     }

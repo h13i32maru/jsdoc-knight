@@ -32,7 +32,6 @@ export default class FunctionExpressionNode extends ASTNode {
     this._node.leadingComments.push(...classNode.leadingComments);
 
     // constructor
-    //let constructorNode = this._findConstructor(classNode);
     let constructorNode = esquery(classNode, '[key.name="constructor"]')[0];
     if (constructorNode) {
       this._mergeComment(this._node, constructorNode);

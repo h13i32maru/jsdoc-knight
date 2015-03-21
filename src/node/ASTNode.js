@@ -52,7 +52,7 @@ export default class ASTNode {
   }
 
   _parseJSDocComment(comment) {
-    assert(this._isJSDocComment(comment), `comment is not JSDoc. comment = ${comment.value}`);
+    assert(this._isJSDocComment(comment), `comment is not JSDoc. comment = "${comment.value}"`);
 
     let results = [];
     let lines = comment.value.split('\n');
@@ -70,6 +70,8 @@ export default class ASTNode {
   }
 
   _formatJSDocComment(comment) {
+    if (!this._isJSDocComment(comment)) return comment;
+
     let lines = ['*', ...this._parseJSDocComment(comment), ' '];
     return {type: 'Block', value: lines.join('\n')};
   }
@@ -84,7 +86,7 @@ export default class ASTNode {
     }
 
     if (otherNode.leadingComments.length !== 1) {
-      this._node.leadingComments.push(...otherNode.leadingComments);
+      targetNode.leadingComments.push(...otherNode.leadingComments);
       return;
     }
 
