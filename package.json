@@ -14,6 +14,7 @@
     "test": "bash ./script/test.sh"
   },
   "dependencies": {
+    "babel": "",
     "espree": "",
     "escodegen": "",
     "estraverse": "",
@@ -22,7 +23,6 @@
     "minimist": "^1.1.1"
   },
   "devDependencies": {
-    "babel": "",
     "coveralls": "",
     "espower-loader": "",
     "istanbul": "",

@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 
+require('babel/polyfill');
+
 import assert from 'assert';
 import path from 'path';
 import convert from './index.js';
 
 let argv = require('minimist')(process.argv.slice(2));
 if (argv.h || argv.help) {
-  console.log('usage: jsdoc-knight -o outdir indir');
+  console.log('usage: jsdoc-knight indir outdir');
   return;
 }
 
-assert(argv.o || argv.out, 'specify out put dir.');
+assert.equal(argv._.length, 2, 'specify input dir and output dir.');
 
-let outDirPath = path.resolve(argv.o || argv.out);
 let inDirPath = path.resolve(argv._[0]);
+let outDirPath = path.resolve(argv._[1]);
 
 convert(inDirPath, outDirPath);
 
