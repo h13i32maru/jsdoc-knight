@@ -1,6 +1,19 @@
 import assert from 'assert';
 
+/**
+ * @module node/ASTNode
+ */
+
+/**
+ * @class
+ * @classdesc represent empty AST node.
+ */
 export default class ASTNode {
+  /**
+   * AST raw node.
+   * @readonly
+   * @member {external:AST}
+   */
   get node() {
     function recursive(obj, result){
       for (let key in obj) {
@@ -21,6 +34,11 @@ export default class ASTNode {
     return result;
   }
 
+  /**
+   * AST children raw nodes of self.
+   * @readonly
+   * @member {external:AST[]}
+   */
   get children() {
     let results = [];
     for (let child of this._children) {
@@ -29,11 +47,18 @@ export default class ASTNode {
     return results;
   }
 
+  /**
+   * create instance.
+   */
   constructor() {
     this._node = {};
     this._children = [];
   }
 
+  /**
+   * add comments to self.
+   * @param {Comment[]} comments
+   */
   addComments(comments) {
     if (!this._node.leadingComments) this._node.leadingComments = [];
     if (!comments) return;
@@ -44,6 +69,11 @@ export default class ASTNode {
     }
   }
 
+  /**
+   * is comment JSDoc style?
+   * @param {Comment} comment
+   * @private
+   */
   _isJSDocComment(comment) {
     if (comment.type !== 'Block') return false;
 
@@ -51,6 +81,12 @@ export default class ASTNode {
     return !!value.match(/^\*\s+/);
   }
 
+  /**
+   * parse JSDoc comment to each lines.
+   * @param {Comment} comment
+   * @return {string[]}
+   * @private
+   */
   _parseJSDocComment(comment) {
     assert(this._isJSDocComment(comment), `comment is not JSDoc. comment = "${comment.value}"`);
 
@@ -69,6 +105,12 @@ export default class ASTNode {
     return results;
   }
 
+  /**
+   * format JSDoc comment.
+   * @param {Comment} comment
+   * @returns {Comment} formatted comment.
+   * @private
+   */
   _formatJSDocComment(comment) {
     if (!this._isJSDocComment(comment)) return comment;
 
@@ -76,6 +118,12 @@ export default class ASTNode {
     return {type: 'Block', value: lines.join('\n')};
   }
 
+  /**
+   * merge other node comment to target node comment.
+   * @param {external:AST} targetNode
+   * @param {external:AST} otherNode
+   * @private
+   */
   _mergeComment(targetNode, otherNode) {
     if (!targetNode.leadingComments) targetNode.leadingComments = [];
     if (!otherNode.leadingComments) otherNode.leadingComments = [];
@@ -109,3 +157,15 @@ export default class ASTNode {
     targetComment.value = lines.join('\n');
   }
 }
+
+/**
+ * @external AST
+ * @see https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API
+ */
+
+/**
+ * @typedef {Object} Comment
+ * @property {string} type
+ * @property {string} value
+ * @memberof node/ASTNode~ASTNode
+ */

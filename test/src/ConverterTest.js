@@ -1,12 +1,19 @@
 import assert from 'power-assert';
 import path from 'path';
-import fs from 'fs';
-import convert from '../../src/index.js';
+import fs from 'fs-extra';
 
 describe('file check before and after', ()=>{
+  function simulateCommandLine(inDirPath, outDirPath){
+    let orig = process.argv;
+    process.argv = ['node', 'mocha', inDirPath, outDirPath];
+    require('../../src/cli.js');
+    process.argv = orig;
+  }
+
   let inDirPath = path.resolve('./test/fixture');
   let outDirPath = path.resolve('./out/test/fixture');
-  convert(inDirPath, outDirPath);
+  fs.removeSync(outDirPath);
+  simulateCommandLine(inDirPath, outDirPath);
 
   it('sample.js', ()=>{
     let actualPath = path.resolve(outDirPath, 'sample.js');

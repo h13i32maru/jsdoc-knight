@@ -4,7 +4,7 @@ require('babel/polyfill');
 
 import assert from 'assert';
 import path from 'path';
-import convert from './index.js';
+import Converter from './Converter.js';
 
 let argv = require('minimist')(process.argv.slice(2));
 if (argv.h || argv.help) {
@@ -17,5 +17,5 @@ assert.equal(argv._.length, 2, 'specify input dir and output dir.');
 let inDirPath = path.resolve(argv._[0]);
 let outDirPath = path.resolve(argv._[1]);
 
-convert(inDirPath, outDirPath);
+Converter.convert(inDirPath, outDirPath);
 

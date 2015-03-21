@@ -2,7 +2,24 @@ import assert from 'assert';
 import ASTNode from './ASTNode.js';
 import IdentifierNode from './IdentifierNode.js';
 
+/**
+ * @module node/MemberExpressionNode~MemberExpressionNode
+ */
+
+/**
+ * @class
+ * @extends node/ASTNode~ASTNode
+ * @classdesc represent MemberExpression
+ * @fileexample
+ * // "window.foo"
+ * let left  = new MemberExpressionNode(new IdentifierNode('window'), new IdentifierNode('foo'));
+ */
 export default class MemberExpressionNode extends ASTNode {
+  /**
+   * create instance.
+   * @param {!(node/IdentifierNode~IdentifierNode|node/MemberExpressionNode~MemberExpressionNode)} parentNode
+   * @param {!node/IdentifierNode~IdentifierNode} property
+   */
   constructor(parentNode, property) {
     super();
 

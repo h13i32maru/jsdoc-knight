@@ -6,7 +6,23 @@ import MemberExpressionNode from './MemberExpressionNode.js';
 import AssignmentExpressionNode from './AssignmentExpressionNode.js';
 import LiteralNode from './LiteralNode.js';
 
+/**
+ * @module node/FunctionExpressionNode
+ */
+
+/**
+ * @class
+ * @classdesc represent FunctionExpression.
+ * @extends node/ASTNode~ASTNode
+ * @fileexample
+ * // "function(){}"
+ * let node = new FunctionExpressionNode();
+ */
 export default class FunctionExpressionNode extends ASTNode {
+  /**
+   * create instance.
+   * @param {string} [name=null] function name.
+   */
   constructor(name = null){
     super();
     this._node = {
@@ -25,6 +41,10 @@ export default class FunctionExpressionNode extends ASTNode {
     };
   }
 
+  /**
+   * update AST with class node.
+   * @param {external:AST} classNode AST node of class.
+   */
   updateByClass(classNode) {
     if (!classNode.leadingComments) classNode.leadingComments = [];
 
