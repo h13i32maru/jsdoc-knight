@@ -51,7 +51,7 @@ export default class FunctionExpressionNode extends ASTNode {
     // constructor
     let constructorNode = esquery(classNode, '[key.name="constructor"]')[0];
     if (constructorNode) {
-      this._mergeComment(this._node, constructorNode);
+      this._mergeComment(this._node, constructorNode, true);
     }
 
     // static method

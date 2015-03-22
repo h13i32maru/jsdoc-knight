@@ -3,16 +3,16 @@
  * @module my-module
  */
 /**
- * this is class Foo comment
- * @classdesc this is classdesc.
- * @class
- * @example
- * var foo = 10;
  * this is constructor comment.
  * @param {string} p1
  * @param {string} p2
  * @example
  * var foo = 123;
+ * this is class Foo comment
+ * @classdesc this is classdesc.
+ * @class
+ * @example
+ * var foo = 10;
  */
 function MyClass() {
 }

@@ -124,9 +124,10 @@ export default class ASTNode {
    * merge other node comment to target node comment.
    * @param {external:AST} targetNode
    * @param {external:AST} otherNode
+   * @param {boolean} [reverse=false] if true, otherNode comment + targetNode comment. if false, targetNode comment + otherNode comment.
    * @private
    */
-  _mergeComment(targetNode, otherNode) {
+  _mergeComment(targetNode, otherNode, reverse = false) {
     if (!targetNode.leadingComments) targetNode.leadingComments = [];
     if (!otherNode.leadingComments) otherNode.leadingComments = [];
 
@@ -154,7 +155,12 @@ export default class ASTNode {
 
     let targetLines = this._parseJSDocComment(targetComment);
     let otherLines = this._parseJSDocComment(otherComment);
-    let lines = ['*', ...targetLines, ...otherLines, ' '];
+    let lines;
+    if (reverse) {
+      lines = ['*', ...otherLines, ...targetLines, ' '];
+    } else {
+      lines = ['*', ...targetLines, ...otherLines, ' '];
+    }
     targetComment.type = 'Block';
     targetComment.value = lines.join('\n');
   }

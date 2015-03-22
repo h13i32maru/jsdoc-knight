@@ -15,7 +15,7 @@ npm install jsdoc-knight
 ```
 
 ## Example
-``indir/MyClass.js``
+create ``indir/MyClass.js``
 
 ```javascript
 import SuperClass from './SuperClass.js';
@@ -45,19 +45,21 @@ class MyClass extends SuperClass {
 }
 ```
 
+convert ES6 to ES5.
+
 ```
 ./node_modules/.bin/jsdoc-knight indir outdir
 ```
 
-``outdir/MyClass.js``
+show ``outdir/MyClass.js``
 
 ```javascript
 /**
+ * this is constructor.
+ * @param {string} p1
  * @classdesc this is MyClass.
  * @class
  * @extends SuperClass
- * this is constructor.
- * @param {string} p1
  */
 function MyClass() {
 }
