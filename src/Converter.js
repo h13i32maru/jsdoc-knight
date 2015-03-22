@@ -66,8 +66,10 @@ export default class Converter {
    * @private
    */
   static _generate(code) {
-    var ast6 = this._parse(code);
-    var ast5 = {body:[], sourceType: 'script', type: 'Program'};
+    let ast6 = this._parse(code);
+    let ast5 = {body:[], sourceType: 'script', type: 'Program'};
+
+    let lastNode6 = ast6.body[ast6.body.length - 1];
 
     for (let node6 of ast6.body) {
       if (['ExportNamedDeclaration', 'ExportDefaultDeclaration'].includes(node6.type)) {
@@ -75,6 +77,10 @@ export default class Converter {
         node6 = exportNode.declaration;
         node6.leadingComments = exportNode.leadingComments;
         node6.trailingComments = exportNode.trailingComments;
+      }
+
+      if (node6 !== lastNode6) {
+        node6.trailingComments = [];
       }
 
       switch (node6.type) {
