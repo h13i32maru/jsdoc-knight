@@ -72,15 +72,15 @@ export default class Converter {
     let lastNode6 = ast6.body[ast6.body.length - 1];
 
     for (let node6 of ast6.body) {
+      if (node6 !== lastNode6) {
+        node6.trailingComments = [];
+      }
+
       if (['ExportNamedDeclaration', 'ExportDefaultDeclaration'].includes(node6.type)) {
         let exportNode = node6;
         node6 = exportNode.declaration;
         node6.leadingComments = exportNode.leadingComments;
         node6.trailingComments = exportNode.trailingComments;
-      }
-
-      if (node6 !== lastNode6) {
-        node6.trailingComments = [];
       }
 
       switch (node6.type) {
@@ -95,7 +95,6 @@ export default class Converter {
         default:
           if (node6.params) node6.params = [];
           if (node6.defaults) node6.defaults = [];
-          node6.trailingComments = [];
           ast5.body.push(node6);
           break;
       }

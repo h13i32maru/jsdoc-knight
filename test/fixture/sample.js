@@ -99,3 +99,7 @@ export var myVar = 100;
  * @type {number}
  */
 window.myMember = 100;
+
+/**
+ * @typedef {number|string} TypeX
+ */

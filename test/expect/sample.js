@@ -71,4 +71,6 @@ var myVar = 100;
  * this is myMember.
  * @type {number}
  */
-window.myMember = 100;
+window.myMember = 100;    /**
+ * @typedef {number|string} TypeX
+ */
