@@ -71,3 +71,6 @@ function MyClass() {
 MyClass.prototype.method = function method() {
 };
 ```
+
+## API
+http://h13i32maru.github.io/jsdoc-knight/
