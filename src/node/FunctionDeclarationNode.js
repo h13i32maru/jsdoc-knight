@@ -1,13 +1,9 @@
 import FunctionExpressionNode from './FunctionExpressionNode.js';
 
 /**
- * @module node/FunctionDeclarationNode
- */
-
-/**
  * @class
  * @classdesc represent FunctionDeclaration.
- * @extends node/FunctionExpressionNode~FunctionExpressionNode
+ * @extends FunctionExpressionNode
  * @fileexample
  * // "function myFunction(){}"
  * let node = new FunctionDeclarationNode('myFunction');

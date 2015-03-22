@@ -5,14 +5,9 @@ import escodegen from 'escodegen';
 import FunctionDeclarationNode from './node/FunctionDeclarationNode.js';
 
 /**
- * @module Converter.js
- */
-
-/**
  * @classdesc Converter for JSDoc.
  * @class
  * @fileexample
- * import Converter from './Converter.js';
  * let inDirPath process.argv[2];
  * let outDirPath process.argv[3];
  * Converter.convert(inDirPath, outDirPath);

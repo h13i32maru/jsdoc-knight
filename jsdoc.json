@@ -1,0 +1,27 @@
+{
+  "plugins": ["plugins/markdown"],
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "source": {
+    "include": "./out/jsdoc-src/",
+    "includePattern": ".+\\.js$"
+  },
+  "opts": {
+    "template": "./node_modules/jsdoc-cloudy/out/src/",
+    "destination": "./out/jsdoc/",
+    "recurse": true,
+    "readme": "./README.md",
+    "package": "./package.json",
+    "private": true
+  },
+  "cloudy": {
+    "title": "JSDoc Knight",
+    "description": "JSDoc Knight converts ES6 to ES5 that JSDoc can process.",
+    "importPath": "jsdoc-knight/out/src",
+    "global": false,
+    "styles": [],
+    "scripts": []
+  }
+}

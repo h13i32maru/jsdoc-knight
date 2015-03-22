@@ -1,12 +1,8 @@
 import ASTNode from './ASTNode.js';
 
 /**
- * @module node/LiteralNode~LiteralNode
- */
-
-/**
  * @class
- * @extends node/ASTNode~ASTNode
+ * @extends ASTNode
  * @classdesc represent Literal.
  * @fileexample
  * // "123"

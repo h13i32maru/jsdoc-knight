@@ -11,7 +11,9 @@
   "scripts": {
     "build": "bash ./script/build.sh",
     "build_test": "bash ./script/build_test.sh",
-    "test": "bash ./script/test.sh"
+    "test": "bash ./script/test.sh",
+    "jsdoc": "bash ./script/build_jsdoc.sh",
+    "start": "bash ./script/server.sh"
   },
   "dependencies": {
     "babel": "",
@@ -27,7 +29,9 @@
     "espower-loader": "",
     "istanbul": "",
     "mocha": "^2.2.1",
-    "power-assert": ""
+    "power-assert": "",
+    "jsdoc": "",
+    "http-server": ""
   },
   "keywords": [
     "jsdoc",

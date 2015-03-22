@@ -1,10 +1,6 @@
 import assert from 'assert';
 
 /**
- * @module node/ASTNode
- */
-
-/**
  * @class
  * @classdesc represent empty AST node.
  */
@@ -57,7 +53,7 @@ export default class ASTNode {
 
   /**
    * add comments to self.
-   * @param {Comment[]} comments
+   * @param {ASTNode.Comment[]} comments
    * @param {boolean} [leading=true]
    */
   addComments(comments, leading = true) {
@@ -77,7 +73,7 @@ export default class ASTNode {
 
   /**
    * is comment JSDoc style?
-   * @param {Comment} comment
+   * @param {ASTNode.Comment} comment
    * @private
    */
   _isJSDocComment(comment) {
@@ -89,7 +85,7 @@ export default class ASTNode {
 
   /**
    * parse JSDoc comment to each lines.
-   * @param {Comment} comment
+   * @param {ASTNode.Comment} comment
    * @return {string[]}
    * @private
    */
@@ -113,8 +109,8 @@ export default class ASTNode {
 
   /**
    * format JSDoc comment.
-   * @param {Comment} comment
-   * @returns {Comment} formatted comment.
+   * @param {ASTNode.Comment} comment
+   * @returns {ASTNode.Comment} formatted comment.
    * @private
    */
   _formatJSDocComment(comment) {
@@ -173,5 +169,5 @@ export default class ASTNode {
  * @typedef {Object} Comment
  * @property {string} type
  * @property {string} value
- * @memberof node/ASTNode~ASTNode
+ * @memberof ASTNode
  */

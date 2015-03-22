@@ -3,12 +3,8 @@ import ASTNode from './ASTNode.js';
 import MemberExpressionNode from './MemberExpressionNode.js';
 
 /**
- * @module node/AssignmentExpressionNode
- */
-
-/**
  * @class
- * @extends node/ASTNode~ASTNode
+ * @extends ASTNode
  * @classdesc represent AssignmentExpression.
  * now only "=" assignment.
  * @fileexample
@@ -20,9 +16,9 @@ import MemberExpressionNode from './MemberExpressionNode.js';
 export default class AssignmentExpressionNode extends ASTNode {
   /**
    * create instance.
-   * @param {node/MemberExpressionNode~MemberExpressionNode} leftNode left node.
+   * @param {MemberExpressionNode} leftNode left node.
    * @param {string} operator only "=".
-   * @param {node/ASTNode~ASTNode} rightNode right node.
+   * @param {ASTNode} rightNode right node.
    */
   constructor(leftNode, operator, rightNode) {
     super();

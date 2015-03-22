@@ -7,13 +7,9 @@ import AssignmentExpressionNode from './AssignmentExpressionNode.js';
 import LiteralNode from './LiteralNode.js';
 
 /**
- * @module node/FunctionExpressionNode
- */
-
-/**
  * @class
  * @classdesc represent FunctionExpression.
- * @extends node/ASTNode~ASTNode
+ * @extends ASTNode
  * @fileexample
  * // "function(){}"
  * let node = new FunctionExpressionNode();

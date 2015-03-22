@@ -3,12 +3,8 @@ import ASTNode from './ASTNode.js';
 import IdentifierNode from './IdentifierNode.js';
 
 /**
- * @module node/MemberExpressionNode~MemberExpressionNode
- */
-
-/**
  * @class
- * @extends node/ASTNode~ASTNode
+ * @extends ASTNode
  * @classdesc represent MemberExpression
  * @fileexample
  * // "window.foo"
@@ -17,8 +13,8 @@ import IdentifierNode from './IdentifierNode.js';
 export default class MemberExpressionNode extends ASTNode {
   /**
    * create instance.
-   * @param {!(node/IdentifierNode~IdentifierNode|node/MemberExpressionNode~MemberExpressionNode)} parentNode
-   * @param {!node/IdentifierNode~IdentifierNode} property
+   * @param {!(IdentifierNode|MemberExpressionNode)} parentNode
+   * @param {!IdentifierNode} property
    */
   constructor(parentNode, property) {
     super();
